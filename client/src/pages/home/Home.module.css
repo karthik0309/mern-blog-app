@@ -1,0 +1,10 @@
+.home__container {
+  display: flex;
+}
+@media (max-width: 600px) {
+  .home__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

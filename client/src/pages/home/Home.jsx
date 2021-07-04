@@ -4,17 +4,19 @@ import Posts from "../../components/posts/Posts";
 import SideBar from "../../components/sidebar/SideBar";
 import classes from "./Home.module.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const {search} = useLocation()
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/post");
+      const res = await axios.get("/post"+search);
       setPosts(res.data);
     };
     fetchPosts();
-  }, []);
+  }, [search]);
   return (
     <React.Fragment>
       <Header />

@@ -48,11 +48,6 @@ exports.createPost=async(req,res)=>{
       }  
 
       post.save((err, post) => {
-        if (err) {
-          res.status(400).json({
-            error: "Saving tshirt in DB failed"
-          });
-        }
         res.json(post);
       });
     });

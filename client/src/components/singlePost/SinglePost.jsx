@@ -81,7 +81,7 @@ const SinglePost = () => {
         ) : (
           <h1 className={classes.post__title}>
             {postData.title}
-            {user.name === postData.name && (
+            {user?.name === postData.name && (
               <div className={classes.post__edit}>
                 <i className="far fa-edit" onClick={handleEdit}></i>
                 <i className="far fa-trash-alt" onClick={handleDelete}></i>

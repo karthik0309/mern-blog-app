@@ -1,8 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const path = require('path')
 dotenv.config()
 const app=express()
+
 
 //Middlewares
 app.use(express.json());
@@ -27,6 +29,16 @@ app.use("/api",authRouter)
 app.use("/api",userRouter)
 app.use("/api/post",postRouter)
 app.use("/api/category",categoryRouter)
+
+//PRODUCTION USE
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('/BackEnd/client/build'));
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname,'BackEnd', 'client', 'build', 'index.html'));
+    });
+}
 
 //PORTS
 const PORT=process.env.PORT || 5000

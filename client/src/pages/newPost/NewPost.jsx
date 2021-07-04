@@ -51,7 +51,7 @@ const NewPost = () => {
   const handleChange = (name) => (event) => {
     event.preventDefault();
     const value =name === "picture" ? event.target.files[0] : event.target.value;
-    setPostData({ ...postData, [name]: value});
+    setPostData({ ...postData, [name]: value,success:false});
   };
 
   return (
@@ -61,6 +61,9 @@ const NewPost = () => {
         src={picture ? URL.createObjectURL(picture) : defaultNewPost}
         alt=""
       />
+      {
+        postData.success && <p className={classes.success}>Post added</p>
+      }
       <form className={classes.post__form} onSubmit={handleSubmit} >
         <div className={classes.post__form__group}>
           <label htmlFor="fileInput" className={classes.label}>
@@ -112,22 +115,9 @@ const NewPost = () => {
           Publish
         </button>
       </form>
-      {
-        postData.success && <p className={classes.success}>Post added</p>
-      }
+      
     </div>
   );
 };
 
 export default NewPost;
-
-/**
- * <input
-            className={classes.post__input}
-            placeholder="Category"
-            type="text"
-            name="category"
-            autoFocus={true}
-            onChange={handleChange("category")}
-          />
- */

@@ -43,7 +43,8 @@
 
 .post__text {
   width: 70vw;
-  height: 100vh;
+  height: 30vh;
+  min-height: 300px;
   font-family: inherit;
   font-size: 20px;
 }

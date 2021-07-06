@@ -1,6 +1,6 @@
 # MERN application for blog
 
-# find femo here
+# find femo here (https://mern-blog-karthik.netlify.app/)
 
 # tools used 
 - react js
